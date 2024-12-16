@@ -25,7 +25,7 @@ jobs:
       - name: Generate project owl ttl file with LinkML 
         run: |
           docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
-          linkml generate owl --output ovora_ontology.owl evora_schema.yaml > evora_ontology.owl
+          linkml generate owl evora_schema.yaml > evora_ontology.owl
           
       - uses: actions/upload-artifact@v4
         with:
@@ -41,6 +41,7 @@ jobs:
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "username@users.noreply.github.com"
-          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git add evora_ontology.owl evora_schema.yaml
+          git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
         
