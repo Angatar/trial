@@ -16,8 +16,19 @@ jobs:
           sheets2linkml --gsheet-id 1zcyNKuhkpH-0FqEGSt6UwHAiSYzsUUSkHYcDOYz67zI \
           --name EVORA CompleteList Prefixes \
           -o evora_schema.yaml
-          
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evora-schema.yaml
+          path: evora_schema.yaml
+          compression-level: 9 # maximum compression
+    
       - name: Generate project owl ttl file with LinkML 
         run: |
           docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
           linkml generate owl --output ovora_ontology.owl evora_schema.yaml > evora_ontology.owl
+          
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evora_ontology.owl.ttl
+          path: evora_ontology.owl
+          compression-level: 9 # maximum compression
