@@ -1,0 +1,23 @@
+name: CI- rebuilding the EVORA ontology files when Gsheet metadata file is updated
+
+on:
+  repository_dispatch:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create LinkML schema from the project s googlesheet of metadata
+        run: |
+          docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
+          sheets2linkml --gsheet-id 1zcyNKuhkpH-0FqEGSt6UwHAiSYzsUUSkHYcDOYz67zI \
+          --name EVORA CompleteList Prefixes \
+          -o evora_schema.yaml
+          
+      - name: Generate project owl ttl file with LinkML 
+        run: |
+          docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
+          linkml generate owl --output ovora_ontology.owl evora_schema.yaml > evora_ontology.owl
