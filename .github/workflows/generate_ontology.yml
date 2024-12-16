@@ -1,4 +1,4 @@
-name: CI- rebuilding the EVORA ontology files when Gsheet metadata file is updated
+name: CI - Last Ontology Build
 
 on:
   repository_dispatch:
