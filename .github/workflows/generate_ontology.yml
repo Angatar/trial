@@ -32,3 +32,15 @@ jobs:
           name: evora_ontology.owl.ttl
           path: evora_ontology.owl
           compression-level: 9 # maximum compression
+
+
+      - name: GIT commit and push all changed files
+        env: 
+          CI_COMMIT_MESSAGE: "CI Build: Synchronisation with google sheet metadata"
+          CI_COMMIT_AUTHOR: GithubAction CI
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
+        
