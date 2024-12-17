@@ -8,9 +8,6 @@
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wdp: <http://www.wikidata.org/prop/> .
 
-<EVORA.owl.ttl> a owl:Ontology ;
-    rdfs:label "EVORA" .
-
 EVORA:Audio a owl:Class ;
     rdfs:label "Audio" ;
     rdfs:subClassOf EVORA:File ;
