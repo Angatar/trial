@@ -17,23 +17,28 @@ jobs:
           docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
           sheets2linkml --gsheet-id 1zcyNKuhkpH-0FqEGSt6UwHAiSYzsUUSkHYcDOYz67zI \
           --name EVORA CompleteList Prefixes \
-          -o evora_schema.yaml
+          -o models/evora_schema.yaml
       - uses: actions/upload-artifact@v4
         with:
           name: evora-schema.yaml
-          path: evora_schema.yaml
+          path: models/evora_schema.yaml
           compression-level: 9 # maximum compression
     
       - name: Generate project owl ttl file with LinkML 
         run: |
           docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
-          linkml generate owl evora_schema.yaml > evora_ontology.owl
+          linkml generate owl models/evora_schema.yaml > models/owl/evora_ontology.owl.ttl
           
       - uses: actions/upload-artifact@v4
         with:
-          name: evora_ontology.owl.ttl
-          path: evora_ontology.owl
+          name: evora-ontology.owl.ttl
+          path: models/owl/evora_ontology.owl.ttl
           compression-level: 9 # maximum compression
+
+      - name: Generate project owl ttl file with LinkML 
+        run: |
+          docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
+          linkml generate project -d models models/evora_schema.yaml 
 
 
       - name: GIT commit and push all changed files
