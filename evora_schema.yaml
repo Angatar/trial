@@ -18,6 +18,7 @@ prefixes:
   wdp: http://www.wikidata.org/prop/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
+  adms: http://www.w3.org/ns/adms#
   pav: http://purl.org/pav/
   dwc: http://rs.tdwg.org/dwc/terms/
   IAO: http://purl.obolibrary.org/obo/IAO_
@@ -415,7 +416,6 @@ classes:
         close_mappings:
         - wdp:P393
         - schema:version
-        identifier: true
         range: string
         required: true
         multivalued: false
@@ -423,8 +423,7 @@ classes:
         description: Identifier of what the version qualifies
         aliases:
         - version Of
-        identifier: true
-        range: uri
+        range: nodeidentifier
         required: true
         multivalued: false
   Nameable:
@@ -558,7 +557,6 @@ classes:
         description: The version of this instance of entity
         aliases:
         - version
-        identifier: true
         range: Version
         required: true
         multivalued: false
@@ -566,9 +564,8 @@ classes:
         description: The data provider for the Version ID of this taxonomy
         aliases:
         - version data provider
-        identifier: true
         range: DataProvider
-        required: false
+        required: true
         multivalued: false
       rank:
         description: Relative level or position of the identified taxon in the taxonomy
@@ -734,7 +731,6 @@ classes:
         description: A pathogen common name or a name that describes a group of pathogens
         aliases:
         - pathogen name
-        ifabsent: Taxon(name)
         range: CommonName
         required: true
         multivalued: false
@@ -1667,7 +1663,7 @@ classes:
         aliases:
         - country of collection
         close_mappings:
-        - dcterms:spatial
+        - dct:spatial
         - dwc:country
         range: Country
         required: true
@@ -1829,7 +1825,6 @@ classes:
         - access point URL
         exact_mappings:
         - dcat:landingPage
-        identifier: true
         range: uri
         required: true
         multivalued: false
@@ -1840,7 +1835,6 @@ classes:
         - ref-SKU
         exact_mappings:
         - dct:identifier
-        identifier: true
         range: string
         required: true
         multivalued: false
@@ -1944,9 +1938,8 @@ classes:
         - Set to TRUE if it can produce GMO
         aliases:
         - can it be used to produce GMO
-        ifabsent: string(unknown)
         range: boolean
-        required: true
+        required: false
         multivalued: false
       provider:
         description: A provider of this product or service, as a specific organization
@@ -2640,7 +2633,7 @@ classes:
         aliases:
         - suspected epidemiological origin
         close_mappings:
-        - dcterms:spatial
+        - dct:spatial
         range: GeographicalOrigin
         required: false
         multivalued: true
