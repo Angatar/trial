@@ -58,7 +58,7 @@ jobs:
 
       - name: GIT commit and push all changed files
         env: 
-          CI_COMMIT_MESSAGE: "CI Build: Synchronisation of the project's models with the google sheet metadata"
+          CI_COMMIT_MESSAGE: "CI Build: Synchronisation of the project's models with the google sheet metadata version  ${{ inputs.version}}"
           CI_COMMIT_AUTHOR: GithubAction CI
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
