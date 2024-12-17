@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
+      - name: Create required paths if not exist
+        run: mkdir -p models models/owl
       - name: Create LinkML schema from the project s googlesheet of metadata
         run: |
           docker run --rm -v $(pwd):/workdir -u $(id -u):$(id -g) evoratools/schemasheets:0.3.1 \
