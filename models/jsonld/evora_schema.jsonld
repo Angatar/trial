@@ -9892,9 +9892,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "evora_schema.yaml",
-  "source_file_date": "2024-12-17T15:32:41",
+  "source_file_date": "2024-12-18T09:00:52",
   "source_file_size": 102415,
-  "generation_date": "2024-12-17T15:32:49",
+  "generation_date": "2024-12-18T09:00:59",
   "@type": "SchemaDefinition",
   "@context": [
     "models/jsonld/evora_schema.context.jsonld",
