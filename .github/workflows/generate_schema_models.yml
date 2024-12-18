@@ -1,4 +1,4 @@
-name: CI - Last Ontology Build
+name: CI - Build schema models from last metadata file version
 
 on:
   repository_dispatch:
