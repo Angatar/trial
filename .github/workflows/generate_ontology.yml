@@ -23,7 +23,7 @@ jobs:
 
       - name: update metadata version
         if: ${{ inputs.version != ''}}
-        run: echo ${{ inputs.version }} > version
+        run: echo ${{ inputs.version }} > metadata_version
         
       - name: Create LinkML schema from the project s googlesheet of metadata
         run: |
