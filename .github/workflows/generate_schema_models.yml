@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
       inputs:
           version:
-              description: 'Google Sheet version asking for Sync'
+              description: 'Google Sheet metadata file version asking for Sync'
               required: false
               type: string
 
