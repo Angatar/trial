@@ -998,7 +998,7 @@ message Variant
 message Version
  {
   string iD = 0
-  nodeidentifier versionOf = 0
+  uri versionOf = 0
  }
 // Subclass of File representing moving visual media, such as recordings, presentations, or movies
 message Video

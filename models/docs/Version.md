@@ -6,7 +6,7 @@ Numeric code assigned to identify a particular historical version of a work (e.g
 URI: [EVORA:Version](https://evora-project.eu/Version)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Taxonomy]++-%20version%201..1>[Version&#124;ID:string;versionOf:nodeidentifier],[Dataset]^-[Version],[Taxonomy],[Dataset])](https://yuml.me/diagram/nofunky;dir:TB/class/[Taxonomy]++-%20version%201..1>[Version&#124;ID:string;versionOf:nodeidentifier],[Dataset]^-[Version],[Taxonomy],[Dataset])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Taxonomy]++-%20version%201..1>[Version&#124;ID:string;versionOf:uri],[Dataset]^-[Version],[Taxonomy],[Dataset])](https://yuml.me/diagram/nofunky;dir:TB/class/[Taxonomy]++-%20version%201..1>[Version&#124;ID:string;versionOf:uri],[Dataset]^-[Version],[Taxonomy],[Dataset])
 
 ## Parents
 
@@ -26,7 +26,7 @@ URI: [EVORA:Version](https://evora-project.eu/Version)
      * Range: [String](types/String.md)
  * [Version➞versionOf](Version_versionOf.md)  <sub>1..1</sub>
      * Description: Identifier of what the version qualifies
-     * Range: [Nodeidentifier](types/Nodeidentifier.md)
+     * Range: [Uri](types/Uri.md)
 
 ## Other properties
 

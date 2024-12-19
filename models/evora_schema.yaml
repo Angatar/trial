@@ -423,7 +423,7 @@ classes:
         description: Identifier of what the version qualifies
         aliases:
         - version Of
-        range: nodeidentifier
+        range: uri
         required: true
         multivalued: false
   Nameable:

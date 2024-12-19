@@ -8,7 +8,7 @@ URI: [EVORA:Version_versionOf](https://evora-project.eu/Version_versionOf)
 
 ## Domain and Range
 
-[Version](Version.md) &#8594;  <sub>1..1</sub> [Nodeidentifier](types/Nodeidentifier.md)
+[Version](Version.md) &#8594;  <sub>1..1</sub> [Uri](types/Uri.md)
 
 ## Parents
 

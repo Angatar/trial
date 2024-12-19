@@ -1128,7 +1128,7 @@ type Variant
 type Version
   {
     iD: String!
-    versionOf: Nodeidentifier!
+    versionOf: Uri!
   }
 
 type Video

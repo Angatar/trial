@@ -1,5 +1,5 @@
 # Auto generated from evora_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-18T11:07:47
+# Generation date: 2024-12-19T11:46:08
 # Schema: EVORA
 #
 # id: EVORA
@@ -57,8 +57,8 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Boolean, Datetime, Integer, Nodeidentifier, String, Uri
-from linkml_runtime.utils.metamodelcore import Bool, NodeIdentifier, URI, XSDDateTime
+from linkml_runtime.linkml_model.types import Boolean, Datetime, Integer, String, Uri
+from linkml_runtime.utils.metamodelcore import Bool, URI, XSDDateTime
 
 metamodel_version = "1.7.0"
 version = None
@@ -163,7 +163,7 @@ class Version(Dataset):
     class_model_uri: ClassVar[URIRef] = EVORA.Version
 
     ID: str = None
-    versionOf: Union[str, NodeIdentifier] = None
+    versionOf: Union[str, URI] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.ID):
@@ -173,8 +173,8 @@ class Version(Dataset):
 
         if self._is_empty(self.versionOf):
             self.MissingRequiredField("versionOf")
-        if not isinstance(self.versionOf, NodeIdentifier):
-            self.versionOf = NodeIdentifier(self.versionOf)
+        if not isinstance(self.versionOf, URI):
+            self.versionOf = URI(self.versionOf)
 
         super().__post_init__(**kwargs)
 
@@ -3172,7 +3172,7 @@ slots.Version_ID = Slot(uri=EVORA.ID, name="Version_ID", curie=EVORA.curie('ID')
                    model_uri=EVORA.Version_ID, domain=Version, range=str)
 
 slots.Version_versionOf = Slot(uri=EVORA.versionOf, name="Version_versionOf", curie=EVORA.curie('versionOf'),
-                   model_uri=EVORA.Version_versionOf, domain=Version, range=Union[str, NodeIdentifier])
+                   model_uri=EVORA.Version_versionOf, domain=Version, range=Union[str, URI])
 
 slots.Nameable_name = Slot(uri=EVORA.name, name="Nameable_name", curie=EVORA.curie('name'),
                    model_uri=EVORA.Nameable_name, domain=Nameable, range=str)

@@ -866,7 +866,7 @@ linkml:Sparqlpath xsd:string
     (  $<Version_tes> (  &<Dataset_tes> ;
           rdf:type [ <Dataset> ] ? ;
           <ID> @linkml:String ;
-          <versionOf> @linkml:Nodeidentifier
+          <versionOf> @linkml:Uri
        ) ;
        rdf:type [ <Version> ] ?
     )
