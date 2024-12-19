@@ -1,4 +1,5 @@
-name: CI - Merge from staging
+name: CI - Merge into main
+# Workflow to be triggered from a different branch than main
 
 on:
   repository_dispatch:
@@ -23,7 +24,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
-          commit-message: Merge last schema models build from staging
+          commit-message: Merge last schema models build from ${GITHUB_REF##*/} branch
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           signoff: false
